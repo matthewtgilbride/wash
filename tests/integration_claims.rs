@@ -194,7 +194,7 @@ fn integration_claims_inspect_cached() {
             "json",
         ])
         .output()
-        .expect("failed to inspect local registry wasm");
+        .expect("failed to inspect remote cached registry");
     assert!(remote_inspect.status.success());
     let remote_inspect_output = output_to_string(remote_inspect);
     assert!(remote_inspect_output.contains(&format!("\"account\":\"{}\"", ECHO_ACC)));
@@ -217,7 +217,7 @@ fn integration_claims_inspect_cached() {
             "--no-cache",
         ])
         .output()
-        .expect("failed to inspect local registry wasm");
+        .expect("failed to inspect remote cached registry");
 
     assert!(!remote_inspect_no_cache.status.success());
 
